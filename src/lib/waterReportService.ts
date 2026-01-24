@@ -16,13 +16,13 @@ export interface ReportData {
 
 // --- CONFIGURATION ---
 const firebaseConfig = {
-    apiKey: "AIzaSyCxLY1Kwy3NWU0zmL4wLkArnKw3plgx2LE",
-    authDomain: "aqua-ai-11885.firebaseapp.com",
-    projectId: "aqua-ai-11885",
-    storageBucket: "aqua-ai-11885.firebasestorage.app",
-    messagingSenderId: "247341765280",
-    appId: "1:247341765280:web:14154fac4949088b6cefc5",
-    measurementId: "G-JBTBXGX3T9"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
