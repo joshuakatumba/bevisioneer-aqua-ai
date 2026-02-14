@@ -1,7 +1,9 @@
 import React, { useState, useRef } from 'react';
-import { Camera, MapPin, Activity, Droplet, AlertTriangle, CheckCircle, XCircle, BarChart2, Info } from 'lucide-react';
+import { Camera, MapPin, Activity, Droplet, AlertTriangle, CheckCircle, XCircle, BarChart2, Info, ChevronLeft } from 'lucide-react';
 import MapComponent from './components/MapComponent';
 import { saveReport, type ReportData } from './lib/waterReportService';
+import LandingPage from './LandingPage';
+
 
 // --- Types ---
 type StatusType = 'Safe' | 'Caution' | 'Unsafe';
@@ -74,13 +76,19 @@ const Badge = ({ status }: { status: string }) => {
 // --- Main Application ---
 
 export default function App() {
+  const [showLanding, setShowLanding] = useState(true);
+
   const [activeTab, setActiveTab] = useState('home');
   const [userPoints, setUserPoints] = useState(120);
+
+
   const [scans, setScans] = useState<Scan[]>([
     { id: 1, location: "Village Well #4", turbidity: 2.1, status: "Safe", date: "2 hrs ago" },
     { id: 2, location: "River Bank North", turbidity: 45.3, status: "Unsafe", date: "5 hrs ago" },
     { id: 3, location: "Community Tank", turbidity: 8.5, status: "Caution", date: "1 day ago" },
   ]);
+
+
 
   // --- Image Analysis Logic ---
   const [analyzing, setAnalyzing] = useState(false);
@@ -193,6 +201,10 @@ export default function App() {
   };
 
   // --- Views ---
+
+  if (showLanding) {
+    return <LandingPage onLaunch={() => setShowLanding(false)} />;
+  }
 
   const renderHome = () => (
     <div className="space-y-6 pb-20 fade-in">
@@ -460,6 +472,15 @@ export default function App() {
         {/* Top Navigation / Branding */}
         <div className="bg-white border-b border-slate-100 p-4 pt-6 flex justify-between items-center sticky top-0 z-30">
           <div className="flex items-center gap-2">
+            <button
+              onClick={() => {
+                if (activeTab === 'home') setShowLanding(true);
+                else setActiveTab('home');
+              }}
+              className="p-2 -ml-2 text-slate-400 hover:text-slate-600 cursor-pointer mr-1"
+            >
+              <ChevronLeft size={24} />
+            </button>
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
               <Droplet size={20} fill="currentColor" />
             </div>
