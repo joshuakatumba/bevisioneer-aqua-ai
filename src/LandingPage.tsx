@@ -199,7 +199,7 @@ export default function LandingPage({ onLaunch }: LandingPageProps) {
                                 className="bg-white text-blue-600 px-10 py-5 rounded-2xl font-black text-xl hover:bg-blue-50 transition-all shadow-2xl active:scale-95 flex items-center gap-3 cursor-pointer"
                             >
                                 <Zap fill="currentColor" />
-                                START CONTRIBUTING NOW
+                                CONTRIBUTIONS COMING SOON
                             </button>
                         </div>
                     </div>
@@ -218,7 +218,7 @@ export default function LandingPage({ onLaunch }: LandingPageProps) {
                             </div>
                             <span className="text-xl font-bold text-white tracking-tight">AquaAI</span>
                         </div>
-                        <p className="text-sm">© 2024 AquaAI Global Movement. Dedicated to universal water safety.</p>
+                        <p className="text-sm">© 2025 AquaAI Global Movement. Dedicated to universal water safety.</p>
                         <div className="flex gap-6">
                             <a href="#" className="hover:text-white transition-colors"><Twitter /></a>
                             <a href="#" className="hover:text-white transition-colors"><Github /></a>
